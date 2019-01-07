@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retangle</title>
+</head>
+<body>
+<canvas id="myRetangle" height="1200px" width="900px"></canvas>
+<script>
+    var Retangle = function (x,y) {
+        this.x = x; //chieu dai
+        this.y = y; //chieu rong
+        this.getPerimeter = function () {
+            return this.x *2 + this.y *2
+        }
+        this.getAcreage = function () {
+            return this.x * this.y
+        }
+        this.setHeight = function (x) {
+            this.x = parseFloat(prompt("Nhap vao chieu dai:"));
+        }
+        this.setWidth = function (y) {
+            this.y = parseFloat(prompt("Nhap vao chieu rong:"));
+        }
+    }
+
+    function createRetangle() {
+        var ctx = document.getElementById("myRetangle").getContext("2d");
+        var retangle1 = new Retangle();
+        retangle1.setHeight();
+        retangle1.setWidth();
+        ctx.beginPath();
+        ctx.rect(120,120,retangle1.x, retangle1.y);
+        ctx.font = "20px Arial"
+        ctx.fillText("Perimeter: " + retangle1.getPerimeter(),50,80,);
+        ctx.fillText("Acreage: " + retangle1.getAcreage(),50,100,);
+        ctx.stroke();
+    }
+    createRetangle();
+</script>
+</body>
+</html>
